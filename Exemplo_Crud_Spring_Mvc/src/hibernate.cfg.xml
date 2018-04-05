@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost/projeto_spring</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.default_schema">public</property>
+		<property name="current_session_context_class">thread</property> <!-- Gerenciamento de contexto automático da sessão do Hibernate -->
+		<property name="hibernate.hbm2ddl.auto">update</property> 
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">admin</property>
+
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">3</property> <!-- Minimo de conexões do pool -->
+		<property name="hibernate.c3p0.max_size">8</property> <!-- Máximo de conexões do pool -->
+		<property name="hibernate.c3p0.timeout">50</property> <!-- Tempo em segundos -->
+		<property name="hibernate.connection.autocommit">false</property> <!-- Auto commit -->
+		<property name="hibernate.c3p0.idle_test_period">50</property>
+		<property name="hibernate.connection.pool_size">8</property> <!-- Limita o numero de conexos aguarndando no pool -->
+		<property name="hibernate.c3p0.max_statements">50</property> <!-- Determina o limite maximo de de cache de comando sql do C3po -->
+		<property name="hibernate.c3p0.acquire_increment">5</property>
+
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+
+		<mapping class="br.com.projeto.classes.Pessoa"/>
+		<mapping class="br.com.projeto.classes.Projeto"/>
+		<mapping class="br.com.projeto.classes.TelefonePessoa"/>
+	</session-factory>
+</hibernate-configuration>
